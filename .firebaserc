@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "siegsesta": {
+      "hosting": {
+        "SiegsestaV2": [
+          "admin-siegsesta"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "siegsesta"
+  }
+}
