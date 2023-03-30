@@ -6,21 +6,23 @@ import { LoginComponent } from './views/login/login.component';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: AdminComponent,
+    loadChildren: () =>
+      import('./views/admin/module/admin.module').then((m) => m.AdminModule),
   },
   {
-    path: 'dashboard',
-    component: AdminComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
