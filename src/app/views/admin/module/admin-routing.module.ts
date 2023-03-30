@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'registration',
     component: RegistrationComponent,
   },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

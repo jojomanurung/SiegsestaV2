@@ -1,2 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/themes/mira/theme.scss";
+
+::-webkit-scrollbar {
+  /* addresses the background of the bar itself. It is usually covered by the other elements */
+  width: 8px;
+}
+::-webkit-scrollbar-button {
+  /* addresses the directional buttons on the scrollbar */
+  display: none;
+}
+::-webkit-scrollbar-track {
+  /* addresses the empty space “below” the progress bar */
+  display: none;
+}
+// ::-webkit-scrollbar-track-piece {
+//   /* is the top-most layer of the the progress bar not covered by the draggable scrolling element (thumb) */
+// }
+::-webkit-scrollbar-thumb {
+  /* addresses the draggable scrolling element that resizes depending on the size of the scrollable element */
+  background-image: linear-gradient(0deg, #c690f9c2 20%, #4b63ccce 100%);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-corner {
+  /* addresses the (usually) bottom corner of the scrollable element, where two scrollbars might meet */
+  display: none;
+}
+// ::-webkit-resizer {
+//   /* addresses the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements */
+// }
