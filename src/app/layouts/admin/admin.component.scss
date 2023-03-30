@@ -1,7 +1,7 @@
 #avatar {
   /* make a square container */
-  width: 28px;
-  height: 28px;
+  width: 45px;
+  height: 45px;
 
   /* fill the container, preserving aspect ratio, and cropping to fit */
   background-size: cover;
@@ -11,4 +11,10 @@
 
   /* round the edges to a circle with border radius 1/2 container size */
   border-radius: 50%;
+}
+
+@media screen and (min-width: 992px) {
+    .lg\:ml-280px {
+        margin-left: 280px !important;
+    }
 }
