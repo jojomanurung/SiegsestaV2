@@ -4,12 +4,12 @@ import { LoginComponent } from './views/login/login.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
   {
-    path: '',
-    redirectTo: 'login',
+    path: '**',
+    redirectTo: '',
     pathMatch: 'full'
   },
 ];
