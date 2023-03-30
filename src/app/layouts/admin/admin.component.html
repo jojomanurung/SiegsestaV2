@@ -1,0 +1,183 @@
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  [appendTo]="'body'"
+  [modal]="false"
+  styleClass="shadow-none bg-indigo-800 text-indigo-200"
+  [showCloseIcon]="false"
+>
+  <ng-template pTemplate="header">
+    <img src="assets/svg/hyper-light.svg" alt="logo" height="30" />
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div class="overflow-y-auto">
+      <ul class="list-none p-3 m-0">
+        <li><span class="block p-3 text-bluegray-600">FAVORITES</span></li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-home mr-2"></i
+            ><span class="font-medium">Dashboard</span
+            ><span
+              class="p-ink"
+              style="
+                height: 230px;
+                width: 230px;
+                top: -65.4001px;
+                left: -36.8px;
+              "
+            ></span
+          ></a>
+        </li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-bookmark mr-2"></i
+            ><span class="font-medium">Bookmarks</span
+            ><span
+              class="p-ink"
+              style="height: 230px; width: 230px; top: -91.6001px; left: -3.8px"
+            ></span
+          ></a>
+        </li>
+        <li>
+          <a
+            pStyleClass="@next"
+            enterClass="hidden"
+            enterActiveClass="slidedown"
+            leaveToClass="hidden"
+            leaveActiveClass="slideup"
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-chart-line mr-2"></i
+            ><span class="font-medium">Reports</span
+            ><i class="pi pi-chevron-down ml-auto"></i
+            ><span
+              class="p-ink"
+              style="height: 230px; width: 230px; top: -90.8px; left: -14.8px"
+            ></span
+          ></a>
+          <ul
+            class="list-none py-0 pl-3 pr-0 m-0 overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out hidden"
+          >
+            <li>
+              <a
+                pStyleClass="@next"
+                enterClass="hidden"
+                enterActiveClass="slidedown"
+                leaveToClass="hidden"
+                leaveActiveClass="slideup"
+                class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                ><i class="pi pi-chart-line mr-2"></i
+                ><span class="font-medium">Revenue</span
+                ><i class="pi pi-chevron-down ml-auto"></i
+                ><span class="p-ink"></span
+              ></a>
+              <ul
+                class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out"
+              >
+                <li>
+                  <a
+                    class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                    ><i class="pi pi-table mr-2"></i
+                    ><span class="font-medium">View</span
+                    ><span class="p-ink"></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                    ><i class="pi pi-search mr-2"></i
+                    ><span class="font-medium">Search</span
+                    ><span class="p-ink"></span
+                  ></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                ><i class="pi pi-chart-line mr-2"></i
+                ><span class="font-medium">Expenses</span
+                ><span class="p-ink"></span
+              ></a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-users mr-2"></i
+            ><span class="font-medium">Team</span><span class="p-ink"></span
+          ></a>
+        </li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-comments mr-2"></i
+            ><span class="font-medium">Messages</span
+            ><span
+              class="inline-flex align-items-center justify-content-center ml-auto bg-blue-500 text-0 border-circle"
+              style="min-width: 1.5rem; height: 1.5rem"
+              >3</span
+            ><span class="p-ink"></span
+          ></a>
+        </li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-calendar mr-2"></i
+            ><span class="font-medium">Calendar</span><span class="p-ink"></span
+          ></a>
+        </li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-cog mr-2"></i
+            ><span class="font-medium">Settings</span><span class="p-ink"></span
+          ></a>
+        </li>
+      </ul>
+      <ul class="list-none p-3 m-0">
+        <li><span class="block p-3 text-bluegray-600">APPLICATION</span></li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-folder mr-2"></i
+            ><span class="font-medium">Projects</span><span class="p-ink"></span
+          ></a>
+        </li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-chart-bar mr-2"></i
+            ><span class="font-medium">Reports</span><span class="p-ink"></span
+          ></a>
+        </li>
+        <li>
+          <a
+            class="p-ripple p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            ><i class="pi pi-cog mr-2"></i
+            ><span class="font-medium">Settings</span><span class="p-ink"></span
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="mt-auto">
+      <hr class="mb-3 mx-3 border-top-1 border-none border-gray-800" />
+      <a
+        pripple=""
+        class="p-ripple p-element m-3 flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+      >
+        <div
+          id="avatar"
+          class="mr-2"
+          style="
+            background-image: url('../../../assets/images/emily-garland.jpg');
+          "
+        ></div>
+        <span class="font-medium">Amy Elsner</span><span class="p-ink"></span
+      ></a>
+    </div>
+  </ng-template>
+</p-sidebar>
