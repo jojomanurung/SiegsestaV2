@@ -10,9 +10,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ChipModule } from 'primeng/chip';
+import { SkeletonModule } from 'primeng/skeleton';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
-  declarations: [DashboardComponent, RegistrationComponent, ProfileComponent, DetailComponent],
+  declarations: [
+    DashboardComponent,
+    RegistrationComponent,
+    ProfileComponent,
+    DetailComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -20,7 +28,10 @@ import { ChipModule } from 'primeng/chip';
     FormsModule,
     InputTextModule,
     ButtonModule,
-    ChipModule
+    ChipModule,
+    SkeletonModule,
+    ToastModule,
   ],
+  providers: [MessageService],
 })
 export class AdminModule {}

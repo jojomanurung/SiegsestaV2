@@ -19,14 +19,14 @@ const routes: Routes = [
     component: RegistrationComponent,
   },
   {
-    path: 'registration/detail/:id',
-    component: DetailComponent
+    path: 'registration/detail',
+    component: DetailComponent,
   },
   {
     path: '',
     redirectTo: 'dashboard',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
