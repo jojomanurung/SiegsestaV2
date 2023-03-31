@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
+  searchCtrl: FormControl = new FormControl('');
 
 }

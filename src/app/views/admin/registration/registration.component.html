@@ -1,1 +1,87 @@
-<p>registration works!</p>
+<div class="grid p-fluid">
+  <div class="col-12 md:col-6 lg:col-4">
+    <div class="p-inputgroup">
+      <span class="p-float-label">
+        <input
+          id="searchBarcode"
+          type="text"
+          pInputText
+          [formControl]="searchCtrl"
+        />
+        <label htmlFor="searchBarcode">Kode barcode</label>
+      </span>
+      <button type="button" pButton icon="pi pi-search" styleClass="p-button-warn"></button>
+    </div>
+  </div>
+</div>
+<div class="surface-card p-4 shadow-2 border-round mt-3">
+  <div class="font-medium text-3xl text-900 mb-3">Applicant Profile</div>
+  <div class="text-500 mb-5">
+    Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+  </div>
+  <div class="grid grid-nogutter border-top-1 surface-border pt-2">
+    <div class="col-12 md:col-6 p-3">
+      <div class="text-500 font-medium mb-2">Name</div>
+      <div class="text-900">Elliot Alderson</div>
+    </div>
+    <div class="col-12 md:col-6 p-3">
+      <div class="text-500 font-medium mb-2">Email</div>
+      <div class="text-900">elliot.alderson@email.com</div>
+    </div>
+    <div class="col-12 md:col-6 p-3">
+      <div class="text-500 font-medium mb-2">Applied Position</div>
+      <div class="text-900">Front-End Developer</div>
+    </div>
+    <div class="col-12 md:col-6 p-3">
+      <div class="text-500 font-medium mb-2">Salary Expectation</div>
+      <div class="text-900">$150,000</div>
+    </div>
+    <div class="col-12 p-3">
+      <div class="text-500 font-medium mb-3">Files</div>
+      <div
+        class="flex md:align-items-center md:justify-content-between border-top-1 surface-border p-3 flex-column md:flex-row"
+      >
+        <div class="flex align-items-center">
+          <span class="block pi pi-file mr-2"></span
+          ><span class="text-900">resume_en.pdf</span>
+        </div>
+        <button
+          pbutton=""
+          pripple=""
+          icon="pi pi-download"
+          label="Download"
+          class="p-element p-ripple p-button-outlined mt-2 md:mt-0 p-button p-component"
+        >
+          <span
+            class="p-button-icon p-button-icon-left pi pi-download"
+            aria-hidden="true"
+          ></span
+          ><span class="p-button-label">Download</span
+          ><span class="p-ink"></span>
+        </button>
+      </div>
+      <div
+        class="flex md:align-items-center md:justify-content-between border-top-1 border-bottom-1 surface-border p-3 flex-column md:flex-row"
+      >
+        <div class="flex align-items-center">
+          <span class="block pi pi-file mr-2"></span
+          ><span class="text-900">cover_letter_en.pdf</span>
+        </div>
+        <button
+          pbutton=""
+          pripple=""
+          icon="pi pi-download"
+          label="Download"
+          class="p-element p-ripple p-button-outlined mt-2 md:mt-0 p-button p-component"
+        >
+          <span
+            class="p-button-icon p-button-icon-left pi pi-download"
+            aria-hidden="true"
+          ></span
+          ><span class="p-button-label">Download</span
+          ><span class="p-ink"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
