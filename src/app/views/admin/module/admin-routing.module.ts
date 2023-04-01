@@ -11,15 +11,15 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'profile',
+    path: 'profil',
     component: ProfileComponent,
   },
   {
-    path: 'registration',
+    path: 'registrasi',
     component: RegistrationComponent,
   },
   {
-    path: 'registration/detail',
+    path: 'registrasi/detail',
     component: DetailComponent,
   },
   {

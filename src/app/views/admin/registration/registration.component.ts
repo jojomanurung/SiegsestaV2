@@ -12,7 +12,7 @@ import { RegistrationService } from 'src/app/services/registration/registration.
 })
 export class RegistrationComponent implements OnDestroy {
   searchCtrl: FormControl<string | null> = new FormControl<string | null>('');
-  subs!: Subscription;
+  subs: Subscription = new Subscription();
   data!: Pendaftaran;
   loading: boolean = false;
 

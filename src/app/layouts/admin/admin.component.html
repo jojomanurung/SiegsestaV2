@@ -11,50 +11,29 @@
         style="height: 62px"
       >
         <img src="assets/svg/hyper-light.svg" alt="logo" height="30" />
+        <span class="text-xl font-bold ml-3 text-white-alpha-90">DForces</span>
       </div>
       <div #body class="overflow-y-auto">
         <ul class="list-none p-3 m-0">
-          <li><span class="block p-3 text-bluegray-600">FAVORITES</span></li>
-          <li>
+          <li><span class="block p-3 text-bluegray-600">ADMIN</span></li>
+          <li *ngFor="let menu of menus">
             <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-home mr-2"></i
-              ><span class="font-medium">Dashboard</span
-              ><span
-                class="p-ink"
-                style="
-                  height: 230px;
-                  width: 230px;
-                  top: -65.4001px;
-                  left: -36.8px;
-                "
-              ></span
-            ></a>
+              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors no-underline"
+              [routerLink]="[menu.path]"
+              routerLinkActive="text-white"
+            >
+              <i class="pi mr-2" [ngClass]="menu.icon"></i>
+              <span class="font-medium">{{ menu.name }}</span>
+            </a>
           </li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-bookmark mr-2"></i
-              ><span class="font-medium">Bookmarks</span
-              ><span
-                class="p-ink"
-                style="
-                  height: 230px;
-                  width: 230px;
-                  top: -91.6001px;
-                  left: -3.8px;
-                "
-              ></span
-            ></a>
-          </li>
-          <li>
+          <!-- <li>
             <a
               pStyleClass="@next"
               enterClass="hidden"
               enterActiveClass="slidedown"
               leaveToClass="hidden"
               leaveActiveClass="slideup"
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
               ><i class="pi pi-chart-line mr-2"></i
               ><span class="font-medium">Reports</span
               ><i class="pi pi-chevron-down ml-auto"></i
@@ -73,7 +52,7 @@
                   enterActiveClass="slidedown"
                   leaveToClass="hidden"
                   leaveActiveClass="slideup"
-                  class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                  class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
                   ><i class="pi pi-chart-line mr-2"></i
                   ><span class="font-medium">Revenue</span
                   ><i class="pi pi-chevron-down ml-auto"></i
@@ -84,7 +63,7 @@
                 >
                   <li>
                     <a
-                      class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                      class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
                       ><i class="pi pi-table mr-2"></i
                       ><span class="font-medium">View</span
                       ><span class="p-ink"></span
@@ -92,7 +71,7 @@
                   </li>
                   <li>
                     <a
-                      class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                      class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
                       ><i class="pi pi-search mr-2"></i
                       ><span class="font-medium">Search</span
                       ><span class="p-ink"></span
@@ -102,7 +81,7 @@
               </li>
               <li>
                 <a
-                  class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+                  class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
                   ><i class="pi pi-chart-line mr-2"></i
                   ><span class="font-medium">Expenses</span
                   ><span class="p-ink"></span
@@ -112,14 +91,7 @@
           </li>
           <li>
             <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-users mr-2"></i
-              ><span class="font-medium">Team</span><span class="p-ink"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
               ><i class="pi pi-comments mr-2"></i
               ><span class="font-medium">Messages</span
               ><span
@@ -128,50 +100,7 @@
                 >3</span
               ><span class="p-ink"></span
             ></a>
-          </li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-calendar mr-2"></i
-              ><span class="font-medium">Calendar</span
-              ><span class="p-ink"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-cog mr-2"></i
-              ><span class="font-medium">Settings</span
-              ><span class="p-ink"></span
-            ></a>
-          </li>
-        </ul>
-        <ul class="list-none p-3 m-0">
-          <li><span class="block p-3 text-bluegray-600">APPLICATION</span></li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-folder mr-2"></i
-              ><span class="font-medium">Projects</span
-              ><span class="p-ink"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-chart-bar mr-2"></i
-              ><span class="font-medium">Reports</span
-              ><span class="p-ink"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-cog mr-2"></i
-              ><span class="font-medium">Settings</span
-              ><span class="p-ink"></span
-            ></a>
-          </li>
+          </li> -->
         </ul>
       </div>
       <div #footer class="mt-auto">
@@ -181,35 +110,18 @@
         >
           <li>
             <a
-              class="p-element flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
               ><i class="pi pi-user mr-2"></i
-              ><span class="font-medium">Profile</span
-              ><span class="p-ink"></span
-            ></a>
+              ><span class="font-medium">Profil</span>
+            </a>
           </li>
           <li>
             <a
-              class="p-element flex align-items-center cursor-pointer p-3 hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-cog mr-2"></i
-              ><span class="font-medium">Settings</span
-              ><span class="p-ink"></span
-            ></a>
-          </li>
-          <li>
-            <a
-              class="p-element flex align-items-center cursor-pointer p-3 hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-sign-out mr-2"></i
-              ><span class="font-medium">Sign Out</span
-              ><span
-                class="p-ink"
-                style="
-                  height: 263px;
-                  width: 263px;
-                  top: -98.4999px;
-                  left: 51.7px;
-                "
-              ></span
-            ></a>
+              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+            >
+              <i class="pi pi-sign-out mr-2"></i>
+              <span class="font-medium">Keluar</span>
+            </a>
           </li>
         </ul>
         <a
@@ -218,7 +130,7 @@
           enterActiveClass="slidedown"
           leaveToClass="hidden"
           leaveActiveClass="slideup"
-          class="p-element m-3 flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
+          class="m-3 flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
         >
           <div
             id="avatar"
@@ -227,7 +139,7 @@
               background-image: url('../../../assets/images/emily-garland.jpg');
             "
           ></div>
-          <span class="font-medium">Amy Elsner</span><span class="p-ink"></span>
+          <span class="font-medium">Amy Elsner</span>
           <i class="pi pi-chevron-up ml-auto"></i>
         </a>
       </div>
@@ -245,22 +157,20 @@
           enterActiveClass="fadeinleft"
           leaveToClass="hidden"
           leaveActiveClass="fadeoutleft"
-          class="p-element cursor-pointer inline-flex align-items-center justify-content-center lg:hidden text-700 mr-3"
+          class="cursor-pointer inline-flex align-items-center justify-content-center lg:hidden text-700 mr-3"
           [hideOnOutsideClick]="true"
           [hideOnEscape]="true"
-          ><i class="pi pi-bars text-4xl"></i
-          ><span
-            class="p-ink"
-            style="height: 35px; width: 35px; top: 3.7px; left: -2.3px"
-          ></span></a
-        ><span class="p-input-icon-left"
-          ><i class="pi pi-search"></i
-          ><input
-            type="text"
-            pinputtext=""
-            placeholder="Search"
-            class="p-inputtext p-component p-element border-none w-10rem sm:w-20rem"
-        /></span>
+        >
+          <i class="pi pi-bars text-4xl"></i>
+        </a>
+        <a
+          class="flex align-items-center p-3 font-bold text-lg no-underline text-primary"
+          style="cursor: default"
+          [routerLink]="[pageTitle.path]"
+        >
+          <i class="pi mr-2" [ngClass]="pageTitle.icon"></i>
+          <span class="font-medium">{{ pageTitle.name }}</span>
+        </a>
       </div>
       <a
         pStyleClass="@next"
@@ -269,38 +179,16 @@
         leaveToClass="hidden"
         leaveActiveClass="fadeout"
         [hideOnOutsideClick]="true"
-        class="p-element cursor-pointer block lg:hidden text-700"
-        ><i class="pi pi-ellipsis-v text-2xl"></i><span class="p-ink"></span
-      ></a>
+        class="cursor-pointer block lg:hidden text-700"
+      >
+        <i class="pi pi-ellipsis-v text-2xl"></i>
+      </a>
       <ul
         class="list-none p-0 m-0 hidden lg:flex lg:align-items-center select-none lg:flex-row surface-section border-1 lg:border-none surface-border right-0 top-100 z-1 shadow-2 lg:shadow-none absolute lg:static"
       >
-        <li>
-          <a
-            class="p-element flex p-3 lg:px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-duration-150 transition-colors"
-            ><i class="pi pi-inbox text-base lg:text-2xl mr-2 lg:mr-0"></i
-            ><span class="block lg:hidden font-medium">Inbox</span
-            ><span class="p-ink"></span
-          ></a>
-        </li>
-        <li>
-          <a
-            class="p-element flex p-3 lg:px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-duration-150 transition-colors"
-            ><i
-              pbadge=""
-              severity="danger"
-              class="p-element pi pi-bell text-base lg:text-2xl mr-2 lg:mr-0 p-overlay-badge"
-              ><span
-                id="pr_id_7_badge"
-                class="p-badge p-component p-badge-danger p-badge-dot"
-              ></span></i
-            ><span class="block lg:hidden font-medium">Notifications</span
-            ><span class="p-ink"></span
-          ></a>
-        </li>
         <li class="border-top-1 surface-border lg:border-top-none">
           <a
-            class="p-element flex p-3 lg:px-3 lg:py-2 align-items-center hover:surface-100 font-medium border-round cursor-pointer transition-duration-150 transition-colors"
+            class="flex p-3 lg:px-3 lg:py-2 align-items-center hover:surface-100 font-medium border-round cursor-pointer transition-duration-150 transition-colors"
           >
             <div
               id="avatar"
@@ -315,13 +203,12 @@
                 >Marketing Specialist</span
               >
             </div>
-            <span class="p-ink"></span
-          ></a>
+          </a>
         </li>
       </ul>
     </div>
     <div class="p-5 flex flex-column flex-auto">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
