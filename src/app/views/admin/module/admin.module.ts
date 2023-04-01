@@ -13,6 +13,7 @@ import { ChipModule } from 'primeng/chip';
 import { SkeletonModule } from 'primeng/skeleton';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MessageService } from 'primeng/api';
     ChipModule,
     SkeletonModule,
     ToastModule,
+    TableModule
   ],
   providers: [MessageService],
 })

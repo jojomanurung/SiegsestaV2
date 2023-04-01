@@ -5,18 +5,18 @@
         class="inline-flex justify-content-center align-items-center bg-blue-600 border-circle mb-3 p-3"
         ><i class="pi pi-inbox text-xl text-white"></i
       ></span>
-      <div class="text-2xl font-medium text-white mb-2">123K</div>
-      <span class="text-blue-100 font-medium">Messages</span>
+      <div class="text-2xl font-medium text-white mb-2">{{ pendaftaran }}</div>
+      <span class="text-blue-100 font-medium">Pendaftaran</span>
     </div>
   </div>
   <div class="col-12 md:col-6 lg:col-3 p-2">
     <div class="p-3 text-center bg-purple-500" style="border-radius: 12px">
       <span
         class="inline-flex justify-content-center align-items-center bg-purple-600 border-circle mb-3 p-3"
-        ><i class="pi pi-map-marker text-xl text-white"></i
+        ><i class="pi pi-home text-xl text-white"></i
       ></span>
-      <div class="text-2xl font-medium text-white mb-2">23K</div>
-      <span class="text-purple-100 font-medium">Check-ins</span>
+      <div class="text-2xl font-medium text-white mb-2">{{ registered }}</div>
+      <span class="text-purple-100 font-medium">Registrasi</span>
     </div>
   </div>
   <div class="col-12 md:col-6 lg:col-3 p-2">
@@ -25,8 +25,8 @@
         class="inline-flex justify-content-center align-items-center bg-indigo-600 border-circle mb-3 p-3"
         ><i class="pi pi-file text-xl text-white"></i
       ></span>
-      <div class="text-2xl font-medium text-white mb-2">23K</div>
-      <span class="text-indigo-100 font-medium">Files</span>
+      <div class="text-2xl font-medium text-white mb-2">{{ kelas }}</div>
+      <span class="text-indigo-100 font-medium">Kelas Perlombaan</span>
     </div>
   </div>
   <div class="col-12 md:col-6 lg:col-3 p-2">
@@ -35,20 +35,57 @@
         class="inline-flex justify-content-center align-items-center bg-orange-600 border-circle mb-3 p-3"
         ><i class="pi pi-users text-xl text-white"></i
       ></span>
-      <div class="text-2xl font-medium text-white mb-2">40K</div>
+      <div class="text-2xl font-medium text-white mb-2">{{ users }}</div>
       <span class="text-orange-100 font-medium">Users</span>
     </div>
   </div>
-  <div class="col-12 md:col-6 p-2">
+  <div class="col-12 p-2">
+    <div class="surface-card shadow-2 border-round p-4">
+      <div class="flex align-items-center justify-content-between mb-4">
+        <span class="text-xl font-medium text-900">Pendaftaran baru</span>
+        <div class="ml-auto">
+          <button
+            pButton
+            icon="pi pi-external-link"
+            class="p-button-text p-button-plain p-button-rounded p-button p-button-icon-only"
+          ></button>
+        </div>
+      </div>
+
+      <p-table
+        [value]="(tablePendaftaran | async)!"
+        [tableStyle]="{ 'min-width': '50rem' }"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nama</th>
+            <th>Tim</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-element>
+          <tr>
+            <td>{{ element.firstName }} {{ element.lastName }}</td>
+            <td>{{ element.team }}</td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="100%">Belum ada pendaftaran baru</td>
+          </tr>
+      </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <!-- <div class="col-12 md:col-6 p-2">
     <div class="surface-card shadow-2 border-round p-4">
       <div class="flex align-items-center justify-content-between mb-4">
         <span class="text-xl font-medium text-900">Quarter Goals</span>
         <div class="ml-auto">
           <button
-            pbutton=""
-            pripple=""
+            
+            
             icon="pi pi-ellipsis-v"
-            class="p-element p-button-text p-button-plain p-button-rounded p-button p-component p-button-icon-only"
+            class="p-button-text p-button-plain p-button-rounded p-button p-button-icon-only"
           >
             <span
               class="p-button-icon pi pi-ellipsis-v"
@@ -128,8 +165,8 @@
         </li>
       </ul>
     </div>
-  </div>
-  <div class="col-12 md:col-6 p-2">
+  </div> -->
+  <!-- <div class="col-12 md:col-6 p-2">
     <div class="surface-card shadow-2 border-round p-4">
       <div class="text-xl text-900 font-medium mb-5">Latest News</div>
       <ul class="list-none p-0 m-0">
@@ -161,23 +198,23 @@
       </ul>
       <div class="flex justify-content-between pt-3">
         <button
-          pbutton=""
-          pripple=""
+          
+          
           label="Clear All"
-          class="p-element p-ripple p-button-outlined p-button-secondary w-6 mr-2 p-button p-component"
+          class="p-button-outlined p-button-secondary w-6 mr-2 p-button "
         >
           <span class="p-button-label">Clear All</span
           ><span class="p-ink"></span></button
         ><button
-          pbutton=""
-          pripple=""
+          
+          
           label="New Entry"
-          class="p-element p-ripple p-button-outlined w-6 ml-2 p-button p-component"
+          class="p-button-outlined w-6 ml-2 p-button "
         >
           <span class="p-button-label">New Entry</span
           ><span class="p-ink"></span>
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
