@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ref, uploadBytesResumable } from '@angular/fire/storage';
+import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -12,9 +12,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class ProfileComponent implements OnInit, OnDestroy {
   subs: Subscription = new Subscription();
   user!: User;
-  // private readonly storage: Storage = inject(Storage);
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private storage: Storage) {}
 
   ngOnInit(): void {
     this.subs = this.authService.getUser$().subscribe((resp) => {
@@ -28,16 +27,17 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   uploadImage(event: any) {
     console.log(event);
-    // if (!event.files?.length) return;
+    if (!event.files?.length) return;
 
-    // const files: FileList = event.files;
+    const files: FileList = event.files;
 
-    // for (let i = 0; i < files.length; i++) {
-    //   const file = files.item(i);
-    //   if (file) {
-    //     const storageRef = ref(this.storage, file.name);
-    //     uploadBytesResumable(storageRef, file);
-    //   }
-    // }
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file) {
+        const name = `${this.user.uid}/${file.name}`;
+        const storageRef = ref(this.storage, name);
+        uploadBytesResumable(storageRef, file);
+      }
+    }
   }
 }
