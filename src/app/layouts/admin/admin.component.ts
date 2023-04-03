@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { menus } from './menus';
 import { NavigationEnd, Router } from '@angular/router';
-import { Menu } from 'src/app/models/menu.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,11 +13,10 @@ export class AdminComponent implements OnInit {
   sidebarVisible: boolean = true;
   pageTitle: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = event.url;
-        console.log(event);
         const nameFound = this.menus.find((value) => currentRoute.includes(value.path));
         this.pageTitle = nameFound ?? '';
       }
@@ -25,4 +24,8 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  logout() {
+    this.authService.logOut();
+  }
 }

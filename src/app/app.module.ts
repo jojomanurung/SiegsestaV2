@@ -17,6 +17,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { StyleClassModule } from 'primeng/styleclass';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, AdminComponent],
@@ -33,6 +35,8 @@ import { StyleClassModule } from 'primeng/styleclass';
     ButtonModule,
     SidebarModule,
     StyleClassModule,
+    ReactiveFormsModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent],
