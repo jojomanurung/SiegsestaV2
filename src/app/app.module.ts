@@ -8,6 +8,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 import { LoginComponent } from './views/login/login.component';
 import { AdminComponent } from './layouts/admin/admin.component';
 
@@ -29,6 +30,7 @@ import { ToastModule } from 'primeng/toast';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     TableModule,
     CheckboxModule,
     InputTextModule,

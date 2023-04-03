@@ -16,16 +16,18 @@
       <div #body class="overflow-y-auto">
         <ul class="list-none p-3 m-0">
           <li><span class="block p-3 text-bluegray-600">ADMIN</span></li>
-          <li *ngFor="let menu of menus">
-            <a
-              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors no-underline"
-              [routerLink]="[menu.path]"
-              routerLinkActive="text-white"
-            >
-              <i class="pi mr-2" [ngClass]="menu.icon"></i>
-              <span class="font-medium">{{ menu.name }}</span>
-            </a>
-          </li>
+          <ng-container *ngFor="let menu of menus">
+            <li *ngIf="menu.display">
+              <a
+                class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors no-underline"
+                [routerLink]="[menu.path]"
+                routerLinkActive="text-white"
+              >
+                <i class="pi mr-2" [ngClass]="menu.icon"></i>
+                <span class="font-medium">{{ menu.name }}</span>
+              </a>
+            </li>
+          </ng-container>
           <!-- <li>
             <a
               pStyleClass="@next"
@@ -110,9 +112,11 @@
         >
           <li>
             <a
-              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
-              ><i class="pi pi-user mr-2"></i
-              ><span class="font-medium">Profil</span>
+              class="flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors no-underline"
+              [routerLink]="['/profil']"
+            >
+              <i class="pi pi-user mr-2"></i>
+              <span class="font-medium">Profil</span>
             </a>
           </li>
           <li>

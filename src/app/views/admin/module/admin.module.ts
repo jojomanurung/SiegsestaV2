@@ -14,6 +14,9 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { FileUploadModule } from 'primeng/fileupload';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { TableModule } from 'primeng/table';
     ChipModule,
     SkeletonModule,
     ToastModule,
-    TableModule
+    TableModule,
+    CardModule,
+    FileUploadModule,
+    HttpClientModule
   ],
   providers: [MessageService],
 })
