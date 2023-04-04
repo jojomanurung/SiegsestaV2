@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { defer, forkJoin, from, Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
-import { Firestore, doc, setDoc, docSnapshots } from '@angular/fire/firestore';
+import { Firestore, doc, docSnapshots, setDoc } from '@angular/fire/firestore';
 import {
   applyActionCode,
   Auth,
@@ -13,6 +13,8 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
+  updateEmail,
+  updateProfile,
 } from '@angular/fire/auth';
 import { User } from 'src/app/models/user.model';
 import { FirebaseError } from '@angular/fire/app';
@@ -54,23 +56,23 @@ export class AuthService {
    * @returns Observable User
    */
   getUser$() {
-    return new Observable<User | null>((subs) => {
-      onAuthStateChanged(this.fireAuth, (user) => {
-        if (user) {
-          const userRef = doc(this.firestore, `users/${user.uid}`);
+    // return new Observable<User | null>((subs) => {
+    //   onAuthStateChanged(this.fireAuth, (user) => {
+    //     if (user) {
+          const userRef = doc(this.firestore, `users/${this.fireAuth.currentUser?.uid}`);
           const user$ = docSnapshots(userRef);
-          const unsubs = user$
+          return user$
             .pipe(map((val) => val.data() as User))
-            .subscribe((al) => {
-              subs.next(al);
-              unsubs.unsubscribe();
-              subs.complete();
-            });
-        } else {
-          subs.next(null);
-        }
-      });
-    });
+            // .subscribe((al) => {
+            //   subs.next(al);
+            //   unsubs.unsubscribe();
+            //   subs.complete();
+            // });
+        // } else {
+        //   subs.next(null);
+        // }
+    //   });
+    // });
   }
 
   verifyEmail(actionCode: string) {
@@ -111,12 +113,45 @@ export class AuthService {
   /**
    * Sets user data to firestore on login
    */
-  private updateUserData(user: User) {
+  updateUserData(user: User) {
     const userRef = doc(this.firestore, `users/${user.uid}`);
 
     const data: User = new User(user);
 
     return setDoc(userRef, Object.assign({}, data), { merge: true });
+  }
+
+  /**
+   * Update user photoURL firebase
+   */
+  updatePhotoURL(url: string) {
+    return defer(() =>
+      from(
+        updateProfile(this.fireAuth.currentUser!, {
+          photoURL: url,
+        })
+      )
+    );
+  }
+
+  /**
+   * Update User display name firebase
+   */
+  updateDisplayName(name: string) {
+    return defer(() =>
+      from(
+        updateProfile(this.fireAuth.currentUser!, {
+          displayName: name,
+        })
+      )
+    );
+  }
+
+  /**
+   * Update user email firebase
+   */
+  updateUserEmail(email: string) {
+    return defer(() => from(updateEmail(this.fireAuth.currentUser!, email)));
   }
 
   async logOut() {

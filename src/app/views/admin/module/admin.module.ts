@@ -17,6 +17,7 @@ import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     TableModule,
     CardModule,
     FileUploadModule,
-    HttpClientModule
+    HttpClientModule,
+    MessagesModule
   ],
   providers: [MessageService],
 })

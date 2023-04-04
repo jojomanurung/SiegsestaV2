@@ -138,13 +138,21 @@
           class="m-3 flex align-items-center cursor-pointer p-3 border-round hover:bg-gray-800 text-gray-300 hover:text-white transition-duration-150 transition-colors"
         >
           <div
+            *ngIf="photoURL"
+            id="avatar"
+            class="mr-2"
+            [style.background-image]="'url(' + photoURL + ')'"
+          ></div>
+          <div
+            *ngIf="!photoURL"
             id="avatar"
             class="mr-2"
             style="
-              background-image: url('../../../assets/images/emily-garland.jpg');
+              background-image: url(/assets/images/profile-placeholder-black.png);
             "
           ></div>
-          <span class="font-medium">Amy Elsner</span>
+          <span class="font-medium" *ngIf="user && user.displayName">{{ user.displayName }}</span>
+          <span class="font-medium" *ngIf="user && !user.displayName">Set Nama Profil</span>
           <i class="pi pi-chevron-up ml-auto"></i>
         </a>
       </div>
@@ -193,20 +201,30 @@
       >
         <li class="border-top-1 surface-border lg:border-top-none">
           <a
-            class="flex p-3 lg:px-3 lg:py-2 align-items-center hover:surface-100 font-medium border-round cursor-pointer transition-duration-150 transition-colors"
+            class="flex p-3 lg:px-3 lg:py-2 align-items-center hover:surface-100 font-medium border-round cursor-pointer transition-duration-150 transition-colors no-underline"
+            [routerLink]="['/profil']"
           >
             <div
+              *ngIf="photoURL"
+              id="avatar"
+              class="mr-3 lg:mr-0"
+              [style.background-image]="'url(' + photoURL + ')'"
+            ></div>
+            <div
+              *ngIf="!photoURL"
               id="avatar"
               class="mr-3 lg:mr-0"
               style="
-                background-image: url('../../../assets/images/emily-garland.jpg');
+                background-image: url(/assets/images/profile-placeholder-black.png);
               "
             ></div>
             <div class="block lg:hidden">
-              <div class="text-900 font-medium">Josephine Lillard</div>
+              <span class="text-900 font-medium" *ngIf="user && user.displayName">{{ user.displayName }}</span>
+              <span class="text-900 font-medium" *ngIf="user && !user.displayName">Set Nama Profil</span>
+              <!-- <div class="text-900 font-medium">Josephine Lillard</div>
               <span class="text-600 font-medium text-sm"
                 >Marketing Specialist</span
-              >
+              > -->
             </div>
           </a>
         </li>
