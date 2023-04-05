@@ -1,12 +1,18 @@
+<div class="text-900 font-medium text-xl mb-3">Pendaftaran</div>
+<p class="m-0 mb-4 p-0 text-600 line-height-3 mr-3">
+  List semua pendaftaran.
+</p>
 <p-card>
   <div class="grid">
     <div class="col-12">
-      <p-table [value]="(dataSource | async)!">
+      <p-table [value]="(dataSource | async)!"  [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
           <tr>
             <th>Nama</th>
             <th>Tim</th>
             <th>Kelas</th>
+            <th>Tanggal</th>
+            <th>Registrasi</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-element>
@@ -19,6 +25,10 @@
                 [label]="class.name"
                 styleClass="mr-2 mb-2"
               ></p-chip>
+            </td>
+            <td>{{ dateTime.fromJSDate(element.timestamp.toDate()).toLocaleString() }}</td>
+            <td class="text-center">
+              <i class="pi" [ngClass]="element.registered ? 'pi-check' : 'pi-times'"></i>
             </td>
           </tr>
         </ng-template>

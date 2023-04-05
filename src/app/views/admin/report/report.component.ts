@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RegistrationService } from 'src/app/services/registration/registration.service';
+import { DateTime } from "luxon";
 
 @Component({
   selector: 'app-report',
@@ -10,6 +11,7 @@ import { RegistrationService } from 'src/app/services/registration/registration.
 export class ReportComponent implements OnInit, OnDestroy {
   subs: Subscription = new Subscription();
   dataSource = this.regService.getAllPendaftaran();
+  public dateTime = DateTime;
 
   constructor(private regService: RegistrationService) {}
 
