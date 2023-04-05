@@ -1,0 +1,33 @@
+<p-card>
+  <div class="grid">
+    <div class="col-12">
+      <p-table [value]="(dataSource | async)!">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nama</th>
+            <th>Tim</th>
+            <th>Kelas</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-element>
+          <tr>
+            <td>{{ element.firstName }} {{ element.lastName }}</td>
+            <td>{{ element.team }}</td>
+            <td>
+              <p-chip
+                *ngFor="let class of element.class"
+                [label]="class.name"
+                styleClass="mr-2 mb-2"
+              ></p-chip>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="100%">Belum ada pendaftaran baru</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</p-card>

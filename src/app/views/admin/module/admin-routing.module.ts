@@ -4,6 +4,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { DetailComponent } from '../detail/detail.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { RegistrationComponent } from '../registration/registration.component';
+import { ReportComponent } from '../report/report.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'registrasi/detail',
     component: DetailComponent,
+  },
+  {
+    path: 'report',
+    component: ReportComponent,
   },
   {
     path: '',

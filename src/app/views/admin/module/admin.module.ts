@@ -18,6 +18,8 @@ import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
+import { ReportComponent } from '../report/report.component';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MessagesModule } from 'primeng/messages';
     RegistrationComponent,
     ProfileComponent,
     DetailComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,8 @@ import { MessagesModule } from 'primeng/messages';
     CardModule,
     FileUploadModule,
     HttpClientModule,
-    MessagesModule
+    MessagesModule,
+    AutoFocusModule
   ],
   providers: [MessageService],
 })

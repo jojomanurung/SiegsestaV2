@@ -6,6 +6,8 @@
           id="searchBarcode"
           type="text"
           pInputText
+          pAutoFocus
+          [autofocus]="true"
           [formControl]="searchCtrl"
           (keyup.enter)="searchData()"
         />

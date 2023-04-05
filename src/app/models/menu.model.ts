@@ -3,6 +3,7 @@ export class Menu {
   icon: string;
   path: string;
   display: boolean;
+  type: 'Link' | 'Subs';
   child?: Menu[];
 
   constructor(input: Menu) {
@@ -10,6 +11,7 @@ export class Menu {
     this.icon = input.icon;
     this.path = input.path;
     this.display = input.display;
+    this.type = input.type;
     this.child = input. child;
   }
 }
