@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { OrderByDirection } from '@angular/fire/firestore';
 import { Observable, Subscription, forkJoin } from 'rxjs';
-import { Pendaftaran } from 'src/app/models/pendaftaran.model';
 import { RegistrationService } from 'src/app/services/registration/registration.service';
 
 @Component({
@@ -15,10 +13,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   registered: number = 0;
   kelas: number = 0;
   users: number = 0;
-  sort: [{ name: string; state: OrderByDirection }] = [
-    { name: 'timestamp', state: 'desc' },
-  ];
-  tablePendaftaran: Observable<any[]> = this.regService.getAllPendaftaran(
+  sort = [{ name: 'timestamp', state: 'desc' }];
+  tablePendaftaran: Observable<any> = this.regService.getAllPendaftaran(
     this.sort,
     5
   );
