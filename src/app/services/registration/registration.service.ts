@@ -3,13 +3,15 @@ import {
   collection,
   collectionSnapshots,
   doc,
+  endBefore,
   Firestore,
   getCountFromServer,
   getDoc,
   limit,
   orderBy,
-  OrderByDirection,
   query,
+  startAfter,
+  startAt,
   updateDoc,
   where,
 } from '@angular/fire/firestore';
@@ -33,14 +35,15 @@ export class RegistrationService {
   }
 
   getAllPendaftaran(
-    order?: [{ name: string; state: OrderByDirection }],
+    order?: { name: string; state: any }[],
     limitSize?: number
   ) {
-    const sortBy = order?.map(({ name, state }) => {
-      return orderBy(name, state);
-    });
-    if (sortBy?.length && limitSize) {
-      const sortQuery = query(this.pendaftaranRef, ...sortBy, limit(limitSize));
+    const queryConst = [];
+    const sortBy = order?.map(({ name, state }) => orderBy(name, state));
+    sortBy && sortBy?.length ? queryConst.push(...sortBy) : null;
+    limitSize ? queryConst?.push(limit(limitSize)) : null;
+    if (queryConst?.length) {
+      const sortQuery = query(this.pendaftaranRef, ...queryConst);
       return collectionSnapshots(sortQuery).pipe(
         map((docs) => {
           return docs.map((doc) => {

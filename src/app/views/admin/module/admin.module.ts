@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessagesModule } from 'primeng/messages';
 import { ReportComponent } from '../report/report.component';
 import { AutoFocusModule } from 'primeng/autofocus';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AutoFocusModule } from 'primeng/autofocus';
     FileUploadModule,
     HttpClientModule,
     MessagesModule,
-    AutoFocusModule
+    AutoFocusModule,
+    PaginatorModule
   ],
   providers: [MessageService],
 })
